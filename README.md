@@ -6,4 +6,4 @@ $mkdir build
 $cd build  
 $cmake ..  
 $make  
-然后依次运行server、minman、client  
+然后依次运行server、midman、client  
