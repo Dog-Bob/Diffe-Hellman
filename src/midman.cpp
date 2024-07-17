@@ -87,8 +87,11 @@ void handle_connection(int client_socket, int server_socket) {
         aes_client->decryption();
         std::cout << "Original message from client: " << aes_client->De_P << std::endl;
 
+        std::string cl_dep = "";
+        for (int i = 0; aes_client->De_P[i] != '\0'; i++)
+            cl_dep += aes_client->De_P[i];
         // Modify message
-        std::string modified_message = "you are hacked!";
+        std::string modified_message = cl_dep+"you are hacked!";
         memcpy(aes_server->P, modified_message.c_str(), BUFFER_SIZE);
         aes_server->encryption();
         memcpy(buffer, aes_server->C, BUFFER_SIZE);
